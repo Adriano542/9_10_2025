@@ -1,34 +1,28 @@
-body {
-  font-family: Arial, sans-serif;
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 30px;
   text-align: center;
-  margin: 40px;
+  color: #222;
+}
+.controls{ margin-bottom: 12px; }
+input#nazwisko{ padding:6px; width:200px; }
+button{ padding:6px 10px; margin-left:6px; cursor:pointer; border-radius:6px; }
+
+.box{
+  width: 80%;
+  max-width:600px;
+  margin: 12px auto;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  text-align:left;
+  background:#fafafa;
 }
 
-h2 {
-  color: #333;
-}
+.ukryj{ display:none; }
 
-button {
-  margin: 15px;
-  padding: 8px 16px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #999;
-  cursor: pointer;
-  background-color: #f0f0f0;
-}
-
-button:hover {
-  background-color: #e2e2e2;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  margin: 4px 0;
-  padding: 4px;
-  border-bottom: 1px solid #ddd;
-}
+ul, ol{ margin:8px 0 0 18px; padding:0; }
+.ramka{ display:flex; gap:12px; align-items:flex-start; }
+.ramka button{ margin:0; }
+.wyniki{ flex:1; }
+#koniec{ margin-top:8px; font-style:italic; color:#666; }

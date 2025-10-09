@@ -14,58 +14,65 @@ let btnLosuj = document.getElementById('losuj');
 let wylEl = document.getElementById('wylosowane');
 let koniecEl = document.getElementById('koniec');
 
-// renderuje główną tablicę na stronie
-function renderMain(){
-  listaEl.innerHTML = names.map(x=>`<li>${x}</li>`).join('');
+// wyświetlanie głównej tablicy
+function renderMain() {
+  listaEl.innerHTML = names.map(x => `<li>${x}</li>`).join('');
 }
 
-// renderuje aktualną (po zatwierdzeniu)
-function renderAktualna(){
-  aktEl.innerHTML = names.map(x=>`<li>${x}</li>`).join('');
+// wyświetlanie aktualnej tablicy
+function renderAktualna() {
+  aktEl.innerHTML = names.map(x => `<li>${x}</li>`).join('');
 }
 
-// dodaj osobę z inputa
-function dodajOsobe(){
+// dodawanie osoby
+function dodajOsobe() {
   let v = nInput.value.trim();
-  if(!v) return;
+  if (!v) return;
   names.push(v);
   nInput.value = '';
   renderMain();
-  if(!aktSek.classList.contains('ukryj')) renderAktualna();
+  if (!aktSek.classList.contains('ukryj')) renderAktualna();
 }
 
-// pokaz sekcję do podania ile wylosować
-function rozpocznijLosowanie(){
-  if(names.length===0) return alert('Brak nazwisk!');
+// rozpoczęcie losowania
+function rozpocznijLosowanie() {
+  if (names.length === 0) return alert('Brak nazwisk!');
   losSek.classList.remove('ukryj');
 }
 
-// zatwierdź liczbę i przygotuj sekcję wyników
-function zatwierdz(){
-  let n = parseInt(ileInput.value,10);
-  if(!n || n<1 || n>names.length) return alert('Nieprawidłowa liczba!');
+// po zatwierdzeniu liczby osób
+function zatwierdz() {
+  let n = parseInt(ileInput.value);
+  if (!n || n > names.length) return alert('Nieprawidłowa liczba!');
   aktSek.classList.remove('ukryj');
   wynSek.classList.remove('ukryj');
   renderAktualna();
-  // przypisz handler losowania (nadpisuje poprzedni)
-  btnLosuj.onclick = ()=>losujN(n);
+  btnLosuj.onclick = () => losujN(n);
 }
 
-// losuj n osób, pokaż i usuń z tablicy
-function losujN(n){
-  // tasowanie + wybór n
-  let picked = names.slice().sort(()=>Math.random() - 0.5).slice(0,n);
-  // wyświetl wylosowane
-  wylEl.innerHTML = picked.map(x=>`<li>${x}</li>`).join('');
-  // usuń wylosowane (po jednym wystąpieniu każdego)
-  picked.forEach(p=>{
-    let i = names.indexOf(p);
-    if(i>-1) names.splice(i,1);
-  });
-  // zaktualizuj listy
+// losowanie n osób przy użyciu Math.random + Math.floor
+function losujN(n) {
+  let wylosowane = [];
+
+  // losuj unikalne indeksy
+  while (wylosowane.length < n && names.length > 0) {
+    let idx = Math.floor(Math.random() * names.length); // losowy indeks
+    let osoba = names[idx];
+    if (!wylosowane.includes(osoba)) {
+      wylosowane.push(osoba);
+      names.splice(idx, 1); // usuń z tablicy
+    }
+  }
+
+  // wyświetl listę wylosowanych
+  wylEl.innerHTML = wylosowane.map(x => `<li>${x}</li>`).join('');
+
+  // zaktualizuj aktualną tablicę
   renderMain();
   renderAktualna();
-  koniecEl.textContent = 'brak nazwisk do losowania';
+
+  // komunikat końcowy
+  koniecEl.innerHTML = 'brak nazwisk do losowania';
 }
 
 // zdarzenia
@@ -73,5 +80,5 @@ btnDodaj.onclick = dodajOsobe;
 btnLosowanie.onclick = rozpocznijLosowanie;
 btnZatwierdz.onclick = zatwierdz;
 
-// pokaż listę na starcie
+// pokaż listę na start
 renderMain();

@@ -4,31 +4,31 @@ body {
   margin: 40px;
 }
 
-.panel, .tabela, #losowanieSekcja, #aktualnaSekcja, #wynikiSekcja {
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  padding: 15px;
-  margin: 20px auto;
-  width: 60%;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+h2 {
+  color: #333;
 }
 
 button {
-  margin: 5px;
-  padding: 6px 12px;
-  cursor: pointer;
+  margin: 15px;
+  padding: 8px 16px;
+  font-size: 16px;
   border-radius: 6px;
+  border: 1px solid #999;
+  cursor: pointer;
+  background-color: #f0f0f0;
 }
 
-.ukryj {
-  display: none;
+button:hover {
+  background-color: #e2e2e2;
 }
 
-#wynik {
-  margin-top: 10px;
+ul {
+  list-style: none;
+  padding: 0;
 }
 
-#koniec {
-  margin-top: 10px;
-  font-style: italic;
+li {
+  margin: 4px 0;
+  padding: 4px;
+  border-bottom: 1px solid #ddd;
 }

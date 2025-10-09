@@ -1,47 +1,44 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <title>Losowanie elementów z tablicy</title>
+  <meta charset="utf-8">
+  <title>Losowanie nazwisk</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Losowanie elementów z tablicy</h1>
+  <h1>Losowanie nazwisk</h1>
 
-  <div class="panel">
-    <p>wprowadź nazwisko: <input id="nazwisko" type="text">
-      <button id="dodaj">dodaj osobę</button>
-      <button id="losowanie">losowanie</button></p>
-    <p id="info"></p>
+  <div class="controls">
+    <input id="nazwisko" placeholder="wpisz nazwisko">
+    <button id="dodaj">dodaj osobę</button>
+    <button id="losowanie">losowanie</button>
   </div>
 
-  <div class="blok">
+  <div class="box">
     <b>Tablica z nazwiskami:</b>
-    <p id="lista"></p>
+    <ul id="lista"></ul>
   </div>
 
-  <div id="sekcjaLos" class="blok ukryj">
-    <p>ile osób wylosować? <input id="ile" type="number" min="1" value="1">
-      <button id="zatwierdz">zatwierdź</button></p>
+  <div id="losowanieSekcja" class="box ukryj">
+    <label>ile osób wylosować? <input id="ile" type="number" min="1" value="1"></label>
+    <button id="zatwierdz">zatwierdź</button>
   </div>
 
-  <div id="sekcjaAkt" class="blok ukryj">
-    <b>aktualna tablica</b>
-    <p id="aktualna"></p>
+  <div id="aktualnaSekcja" class="box ukryj">
+    <b>Aktualna tablica:</b>
+    <ul id="aktualna"></ul>
   </div>
 
-  <div id="sekcjaWynik" class="blok ukryj">
+  <div id="wynikiSekcja" class="box ukryj">
     <div class="ramka">
       <button id="losuj">Losuj</button>
-      <div>
-        <b>Wylosowane osoby:</b>
-        <ol id="wyniki"></ol>
+      <div class="wyniki">
+        <b>wylosowane osoby:</b>
+        <ol id="wylosowane"></ol>
         <p id="koniec"></p>
       </div>
     </div>
   </div>
-
-  <footer>© Me, XXI c.</footer>
 
   <script src="main.js"></script>
 </body>

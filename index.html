@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <title>Metody tablicowe</title>
+  <meta charset="UTF-8">
+  <title>Losowanie elementów z tablicy</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="output"></div>
+  <h1>Losowanie elementów z tablicy</h1>
 
-    <ol id="list"></ol>
+  <div class="panel">
+    <label>wprowadź nazwisko:</label>
+    <input type="text" id="nazwisko">
+    <button id="dodaj">dodaj osobę</button>
+    <button id="losowanie">losowanie</button>
+    <p id="info"></p>
+  </div>
 
-    <script src="main.js"></script>
+  <div class="tabela">
+    <b>Tablica z nazwiskami:</b>
+    <p id="lista"></p>
+  </div>
+
+  <div id="losowanieSekcja" class="ukryj">
+    <p>ile osób wylosować? 
+      <input type="number" id="ile" min="1">
+      <button id="zatwierdz">zatwierdź</button>
+    </p>
+  </div>
+
+  <div id="aktualnaSekcja" class="ukryj">
+    <b>aktualna tablica</b>
+    <p id="aktualna"></p>
+  </div>
+
+  <div id="wynikiSekcja" class="ukryj">
+    <button id="losuj">Losuj</button>
+    <div id="wynik">
+      <p><b>Wylosowane osoby:</b></p>
+      <ol id="listaWylosowanych"></ol>
+      <p id="koniec"></p>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>

@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <title>Losowanie nazwisk</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Losowanie nazwisk</h2>
-  <p>Aktualna lista nazwisk:</p>
-  <ul id="lista"></ul>
+  <h1>Losowanie nazwisk</h1>
 
-  <button id="losuj">Losuj 5 nazwisk</button>
+  <div class="controls">
+    <input id="nazwisko" placeholder="wpisz nazwisko">
+    <button id="dodaj">dodaj osobę</button>
+    <button id="losowanie">losowanie</button>
+  </div>
 
-  <h3>Wylosowane (krótsze niż 8 znaków):</h3>
-  <ul id="wynik"></ul>
+  <div class="box">
+    <b>Tablica z nazwiskami:</b>
+    <ul id="lista"></ul>
+  </div>
+
+  <div id="losowanieSekcja" class="box ukryj">
+    <label>ile osób wylosować? <input id="ile" type="number" min="1" value="1"></label>
+    <button id="zatwierdz">zatwierdź</button>
+  </div>
+
+  <div id="aktualnaSekcja" class="box ukryj">
+    <b>Aktualna tablica:</b>
+    <ul id="aktualna"></ul>
+  </div>
+
+  <div id="wynikiSekcja" class="box ukryj">
+    <div class="ramka">
+      <button id="losuj">Losuj</button>
+      <div class="wyniki">
+        <b>wylosowane osoby:</b>
+        <ol id="wylosowane"></ol>
+        <p id="koniec"></p>
+      </div>
+    </div>
+  </div>
 
   <script src="main.js"></script>
 </body>
